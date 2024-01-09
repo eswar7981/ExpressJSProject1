@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div>
+            <p1><%= playerdata.name %></p1>
+        </div>
+    </div>
+    <div>
+        <form action="/playerstats/editPlayerInfo" method="POST">
+         <input type="hidden" name="playerName" value="<%= playerdata.name %>"> </input>
+         <div>
+            <button type="submit">Edit Player Info</button>
+         </div>
+        </form>
+    </div>
+</body>
+</html>

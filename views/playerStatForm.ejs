@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="/css/player.css"></link>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayerStatForm</title>
+</head>
+<body>
+    <% if(playerdata){%>
+        <div class="outerBoundary">
+            <form action="/playerstats/submitPlayerData" method="POST">
+                <div class="title">
+                    <h4>Player Information</h4>
+                </div>
+                <div>
+                   <div class="labels">
+                    <label>Name</label>
+                    <label>Date of Birth</label>
+                    <label>Photo Url</label>
+                    <label>BirthPlace</label>       
+                    <label>Career</label> 
+                    <label>Number of Matches</label>      
+                    <label>HighestScore</label>
+                    <label>Fifties</label>       
+                    <label>Centuries</label>      
+                    <label>Wickets</label>
+                    <label>Average</label>        
+                 </div>
+                   <div class="inputs">
+                    <input type="text" name="playerName" id="playerName" value="<%= playerdata.name %>"></input>
+                    <input type="date" name="playerDOB" ></input>
+                    <input type="text" name="playerPhoto" ></input>
+                    <input type="text" name="playerBirthPlace" ></input>
+                    <textarea type="text" name="playerCareer" ></textarea>
+                    <input type="number" name="playerTotalMatches" ></input>
+                    <input type="number" name="playerHighestScore" ></input>
+                    <input type="number" name="playerHalfCenturies" ></input>
+                    <input type="number" name="playerCenturies" ></input>
+                    <input type="number" name="playerWickets" ></input>
+                    <input type="number" name="playerAverage" ></input>
+                </div>
+                </div>
+                <div class="submitButton">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+            <div>
+                <form action="/playerstats/searchPlayer" method="POST">
+                    <input type="text" name="playerName"></input>
+                    <div>
+                        <button>Search</button>
+                    </div>
+                </form>
+            </div>
+        
+        <%} else {%>
+            <div class="outerBoundary">
+                <form action="/playerstats/submitPlayerData" method="POST">
+                    <div class="title">
+                        <h4>Player Information</h4>
+                    </div>
+                    <div>
+                       <div class="labels">
+                        <label>Name</label>
+                        <label>Date of Birth</label>
+                        <label>Photo Url</label>
+                        <label>BirthPlace</label>       
+                        <label>Career</label> 
+                        <label>Number of Matches</label>      
+                        <label>HighestScore</label>
+                        <label>Fifties</label>       
+                        <label>Centuries</label>      
+                        <label>Wickets</label>
+                        <label>Average</label>        
+                     </div>
+                       <div class="inputs">
+                        <input type="text" name="playerName" id="playerName"></input>
+                        <input type="date" name="playerDOB" ></input>
+                        <input type="text" name="playerPhoto" ></input>
+                        <input type="text" name="playerBirthPlace" ></input>
+                        <textarea type="text" name="playerCareer" ></textarea>
+                        <input type="number" name="playerTotalMatches" ></input>
+                        <input type="number" name="playerHighestScore" ></input>
+                        <input type="number" name="playerHalfCenturies" ></input>
+                        <input type="number" name="playerCenturies" ></input>
+                        <input type="number" name="playerWickets" ></input>
+                        <input type="number" name="playerAverage" ></input>
+                    </div>
+                    </div>
+                    <div class="submitButton">
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+                <div>
+                    <form action="/playerstats/searchPlayer" method="POST">
+                        <input type="text" name="playerName"></input>
+                        <div>
+                            <button>Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+<% } %>
+
+
+</body>
+</html>
