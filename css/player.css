@@ -1,0 +1,37 @@
+.form {
+    display: inline-flex;
+    
+}
+
+.outerBoundary{
+    display: inline-flex;
+    border: solid;
+    padding-left: 50px;
+    margin-top: 10px;
+}
+
+.labels{
+    display: grid;
+}
+
+.labels label{
+    font-weight: 1000;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-top: 10px;
+}
+
+.inputs{
+    display: grid;
+}
+
+.inputs p1{
+    margin-top: 10px;
+}
+
+.inputs input{
+    margin-top: 10px;
+}
+
+.inputs textarea{
+    margin-top: 10px;
+}

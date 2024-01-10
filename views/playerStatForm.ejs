@@ -1,106 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="/css/player.css"></link>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PlayerStatForm</title>
+    <link rel="stylesheet" href="/player.css">
 </head>
 <body>
     <% if(playerdata){%>
-        <div class="outerBoundary">
-            <form action="/playerstats/submitPlayerData" method="POST">
-                <div class="title">
-                    <h4>Player Information</h4>
+        <div >
+            <form action="/playerstats/searchPlayer" method="POST">
+               <div style="display: flex;justify-content: center;">
+                <input type="text" name="playerName"></input>
+                <div style="margin-left: 5px;">
+                    <button style="background-color:rgb(19, 126, 19);color: white;">Search</button>
                 </div>
-                <div>
-                   <div class="labels">
-                    <label>Name</label>
-                    <label>Date of Birth</label>
-                    <label>Photo Url</label>
-                    <label>BirthPlace</label>       
-                    <label>Career</label> 
-                    <label>Number of Matches</label>      
-                    <label>HighestScore</label>
-                    <label>Fifties</label>       
-                    <label>Centuries</label>      
-                    <label>Wickets</label>
-                    <label>Average</label>        
+            </div>
+            </form>
+        </div>
+        <div style="margin-left: 470px">
+        <div class="outerBoundary" style="padding: 50px;padding-top: 0px;">
+            <form action="/playerstats/submitPlayerData" method="POST">
+                <div class="title" style="display: flex;justify-content: center;">
+                    <h3> Edit Player's Information</h3>
+                </div>
+                <div class="form">
+                   <div class="labels" >
+                    <label>Name:</label>
+                    <label>Date of Birth:</label>
+                    <label>Photo Url:</label>
+                    <label>BirthPlace:</label>       
+                    <label>Career:</label> 
+                    <label>Number of Matches:</label>      
+                    <label>HighestScore:</label>
+                    <label>Fifties:</label>       
+                    <label>Centuries:</label>      
+                    <label>Wickets:</label>
+                    <label>Average:</label>        
                  </div>
                    <div class="inputs">
-                    <input type="text" name="playerName" id="playerName" value="<%= playerdata.name %>"></input>
-                    <input type="date" name="playerDOB" ></input>
-                    <input type="text" name="playerPhoto" ></input>
-                    <input type="text" name="playerBirthPlace" ></input>
-                    <textarea type="text" name="playerCareer" ></textarea>
-                    <input type="number" name="playerTotalMatches" ></input>
-                    <input type="number" name="playerHighestScore" ></input>
-                    <input type="number" name="playerHalfCenturies" ></input>
-                    <input type="number" name="playerCenturies" ></input>
-                    <input type="number" name="playerWickets" ></input>
-                    <input type="number" name="playerAverage" ></input>
+                    <input required type="hidden" name="playerNameBefore" value="<%= playerdata.name %>" ></input>
+                    <input required type="text" name="playerName" id="playerName" value="<%= playerdata.name %>"></input>
+                    <input required type="date" name="playerDOB" value="<%= playerdata.DOB %>"></input>
+                    <input required type="text" name="playerPhoto" value="<%= playerdata.photoURL %>"></input>
+                    <input required type="text" name="playerBirthPlace" value="<%= playerdata.birthPlace %>"></input>
+                    <input required type="text" name="playerCareer" value="<%= playerdata.career %>"></input>  
+                    <input required type="number" name="playerTotalMatches" value="<%= playerdata.noOfMatches %>"></input>
+                    <input required type="number" name="playerHighestScore" value="<%= playerdata.highestScore %>"></input>
+                    <input required type="number" name="playerHalfCenturies" value="<%= playerdata.halfCenturies %>"></input>
+                    <input required type="number" name="playerCenturies" value="<%= playerdata.centuries %>"></input>
+                    <input required type="number" name="playerWickets" value="<%= playerdata.wickets %>"></input>
+                    <input required type="number" name="playerAverage" value="<%= playerdata.average %>"></input>
                 </div>
                 </div>
-                <div class="submitButton">
-                    <button type="submit">Submit</button>
+                <div class="submitButton" style="display: flex;justify-content:end;margin-top: 10px;">
+                    <button type="submit" style="background-color:rgb(11, 142, 194);">Edit Profile</button>
                 </div>
             </form>
-            <div>
-                <form action="/playerstats/searchPlayer" method="POST">
-                    <input type="text" name="playerName"></input>
-                    <div>
-                        <button>Search</button>
-                    </div>
-                </form>
-            </div>
         
-        <%} else {%>
-            <div class="outerBoundary">
-                <form action="/playerstats/submitPlayerData" method="POST">
-                    <div class="title">
-                        <h4>Player Information</h4>
+          
+        </div>
+        
+    </div>
+        <%}else {%>
+
+            <div>
+                <% if(!playerDoesNotExist) {%>
+                <form action="/playerstats/searchPlayer" method="POST">
+                   <div style="display: flex;justify-content: center;"> 
+                    <input type="text" name="playerName"></input>
+                    <div style="margin-left: 5px;">
+                        <button style="background-color:rgb(19, 126, 19);color: white;">Search</button>
                     </div>
-                    <div>
+                </div>
+                </form>
+                <% } else{ %>
+                    
+                    <form action="/playerstats/searchPlayer" method="POST">
+                        <div style="display: flex;justify-content: center;"> 
+                 
+                        <input type="text" name="playerName"></input>
+                        <div style="margin-left: 5px;">
+                            <button style="background-color:rgb(19, 126, 19);color: white;">Search</button>
+                        </div>
+                    </div>
+                    </form>
+                   <div style="display: flex;justify-content: center;">
+                    <p style="color:red;font-size: medium;">Player Does Not Exist!!!</p>
+         
+                   </div>
+                         <% } %>
+            </div>
+            <div style="margin-left: 470px">
+            <div class="outerBoundary" style="padding: 50px;padding-top: 0px;">
+                <form action="/playerstats/submitPlayerData" method="POST">
+                    <div class="title" style="display: flex;justify-content: center;">
+                        <h4>Player's ODI Information</h4>
+                    </div>
+                    <div class="form">
                        <div class="labels">
-                        <label>Name</label>
-                        <label>Date of Birth</label>
-                        <label>Photo Url</label>
-                        <label>BirthPlace</label>       
-                        <label>Career</label> 
-                        <label>Number of Matches</label>      
-                        <label>HighestScore</label>
-                        <label>Fifties</label>       
-                        <label>Centuries</label>      
-                        <label>Wickets</label>
-                        <label>Average</label>        
+                        <label>Name:</label>
+                        <label>Date of Birth:</label>
+                        <label>Photo Url:</label>
+                        <label>BirthPlace:</label>       
+                        <label>Career:</label> 
+                        <label>Number of Matches:</label>      
+                        <label>HighestScore:</label>
+                        <label>Fifties:</label>       
+                        <label>Centuries:</label>      
+                        <label>Wickets:</label>
+                        <label>Average:</label>        
                      </div>
                        <div class="inputs">
-                        <input type="text" name="playerName" id="playerName"></input>
-                        <input type="date" name="playerDOB" ></input>
-                        <input type="text" name="playerPhoto" ></input>
-                        <input type="text" name="playerBirthPlace" ></input>
-                        <textarea type="text" name="playerCareer" ></textarea>
-                        <input type="number" name="playerTotalMatches" ></input>
-                        <input type="number" name="playerHighestScore" ></input>
-                        <input type="number" name="playerHalfCenturies" ></input>
-                        <input type="number" name="playerCenturies" ></input>
-                        <input type="number" name="playerWickets" ></input>
-                        <input type="number" name="playerAverage" ></input>
+                        <input required type="hidden" name="playerNameBefore" value="playerDoesNotExist" ></input>
+                        <input required type="text" name="playerName" id="playerName"></input>
+                        <input required type="date" name="playerDOB" ></input>
+                        <input required type="text" name="playerPhoto" ></input>
+                        <input required type="text" name="playerBirthPlace" ></input>
+                        <textarea required type="text" name="playerCareer" ></textarea>
+                        <input required type="number" name="playerTotalMatches" ></input>
+                        <input required type="number" name="playerHighestScore" ></input>
+                        <input required type="number" name="playerHalfCenturies" ></input>
+                        <input required type="number" name="playerCenturies" ></input>
+                        <input required type="number" name="playerWickets" ></input>
+                        <input required type="number" name="playerAverage" ></input>
                     </div>
                     </div>
-                    <div class="submitButton">
-                        <button type="submit">Submit</button>
+                    <div class="submitButton" style="display: flex;justify-content:end;margin-top: 10px;">
+                        <button type="submit" style="background-color:rgb(11, 142, 194);">Submit</button>
                     </div>
                 </form>
-                <div>
-                    <form action="/playerstats/searchPlayer" method="POST">
-                        <input type="text" name="playerName"></input>
-                        <div>
-                            <button>Search</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+
+               
+
+</div>
+
+
+              
 <% } %>
 
 

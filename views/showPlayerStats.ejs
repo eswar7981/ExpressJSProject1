@@ -3,19 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>PlayerStatistics</title>
+    <link rel="stylesheet" href="/player.css">
 </head>
 <body>
-    <div>
-        <div>
+    <label style="display: flex;justify-content: center;font-weight: 1000;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+ ">Player's ODI Profile</label>
+    <div style="display: block;padding-left: 550px;">
+        
+        <img style="border: solid;" src="<%= playerdata.photoURL %>"  />
+    </div>
+    <h7 style="font-weight: 1000;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+ ">Career:</h7>
+    <div style="display: block;">
+        <p><%= playerdata.career %></p>
+    </div>
+
+
+    <div class="form" style="margin-left: 520px;">
+       
+        <div class="labels">
+            <label>Name:</label>
+            <label>Date of Birth:</label>
+            
+            <label>BirthPlace:</label>       
+        
+            <label>Number of Matches:</label>      
+            <label>HighestScore:</label>
+            <label>Fifties:</label>       
+            <label>Centuries:</label>      
+            <label>Wickets:</label>
+            <label>Average:</label> 
+        </div>
+        <div class="inputs">
             <p1><%= playerdata.name %></p1>
+            <p1><%= playerdata.DOB %></p1>
+         
+            <p1><%= playerdata.birthPlace %></p1>
+           
+            <p1><%= playerdata.noOfMatches %></p1>
+            <p1><%= playerdata.highestScore %></p1>
+            <p1><%= playerdata.halfCenturies %></p1>
+            <p1><%= playerdata.centuries %></p1>
+            <p1><%= playerdata.wickets %></p1>
+            <p1><%= playerdata.average %></p1>
         </div>
     </div>
     <div>
         <form action="/playerstats/editPlayerInfo" method="POST">
          <input type="hidden" name="playerName" value="<%= playerdata.name %>"> </input>
-         <div>
-            <button type="submit">Edit Player Info</button>
+         <div style="margin-left: 560px;padding-top: 20px;">
+            <button style="background-color: rgb(51, 51, 223);" type="submit">Edit Player Info</button>
          </div>
         </form>
     </div>

@@ -26,7 +26,7 @@ const Player=sequelize.define('Player',{
         allowNull:false
     },
     career:{
-        type:Sequelize.STRING,
+        type:Sequelize.TEXT,
         allowNull:false
     },
     noOfMatches:{
@@ -34,19 +34,24 @@ const Player=sequelize.define('Player',{
         allowNull:false
     },
     highestScore:{
-        type:Sequelize.INTEGER
+        type:Sequelize.INTEGER,
+        allowNull:false
     },
     halfCenturies:{
-        type:Sequelize.INTEGER
+        type:Sequelize.INTEGER,
+        allowNull:false
     },
     centuries:{
-        type:Sequelize.INTEGER
+        type:Sequelize.INTEGER,
+        allowNull:false
     },
     wickets:{
-        type:Sequelize.INTEGER
+        type:Sequelize.INTEGER,
+        allowNull:false
     },
     average:{
-        type:Sequelize.INTEGER
+        type:Sequelize.INTEGER,
+        allowNull:false
     }
 })
 
